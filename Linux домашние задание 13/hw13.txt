@@ -1,0 +1,41 @@
+Задание выполнила на сервере
+
+touch task_Gustavo.sh  
+vim task_Gustavo.sh
+
+
+#!/bin/bash
+#
+CURRENT_DIR="/opt/281024-wdm/Gustavo"
+mkdir -p $CURRENT_DIR/HW_13
+
+        for i in {1..10}
+do
+                CURRENT_DATE=$(date +"%d.%m.%y")
+                touch $CURRENT_DIR/HW_13/$i'_'$CURRENT_DATE.txt
+done
+
+
+
+
+chmod u+x task_Gustavo.sh  
+
+crontab -e    
+
+
+
+*/15 * * * * /opt/281024-wdm/Gustavo/task_Gustavo
+
+
+
+history | tail -7 >> /opt/281024-wdm/Gustavo/history_hw13.txt  
+
+
+tar -cf archive_hw13.tar HW_13  
+
+tar -rf archive_hw13.tar history_hw13.txt   
+
+tar -tvf archive_hw13.tar   
+
+
+
